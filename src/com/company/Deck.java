@@ -70,10 +70,14 @@ public class Deck {
      * @return the card just dealt, or null if all the cards have been
      *         previously dealt.
      */
-    /*public Card deal() {
-        if (isEmpty())
+    public Card deal() {
+        if(isEmpty()) {
             return null;
-    } */
+        }
+        Card temp = cards.get(size-1);
+        size--;
+        return temp;
+    }
 
     /**
      * Generates and returns a string representation of this deck.
