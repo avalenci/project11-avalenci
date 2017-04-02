@@ -1,5 +1,10 @@
 package com.company;
 
+/**
+ * Card.java
+ *
+ * <code>Card</code> represents a playing card.
+ */
 public class Card {
 
 	/**
@@ -29,9 +34,10 @@ public class Card {
 	 *                  containing the point value of the card
 	 */
 	public Card(String cardRank, String cardSuit, int cardPointValue) {
+		//initializes a new Card with the given rank, suit, and point value
 		rank = cardRank;
-        suit = cardSuit;
-        pointValue = cardPointValue;
+		suit = cardSuit;
+		pointValue = cardPointValue;
 	}
 
 
@@ -41,7 +47,7 @@ public class Card {
 	 */
 	public String suit() {
 		return suit;
-   }
+	}
 
 	/**
 	 * Accesses this <code>Card's</code> rank.
@@ -66,9 +72,9 @@ public class Card {
 	 *         false otherwise.
 	 */
 	public boolean matches(Card otherCard) {
-		if (suit.equals(otherCard.suit()) && rank.equals(otherCard.rank()) && pointValue == otherCard.pointValue())
-			return true;
-		return false;
+		return otherCard.suit().equals(this.suit())
+			&& otherCard.rank().equals(this.rank())
+			&& otherCard.pointValue() == this.pointValue();
 	}
 
 	/**
@@ -83,7 +89,6 @@ public class Card {
 	 */
 	@Override
 	public String toString() {
-		String x = rank + " of " + suit + " (point value = " + pointValue + ")";
-		return x;
+		return rank + " of " + suit + " (point value = " + pointValue + ")";
 	}
 }
