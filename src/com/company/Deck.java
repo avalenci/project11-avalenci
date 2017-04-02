@@ -62,7 +62,15 @@ public class Deck {
      * and reset the size to represent the entire deck.
      */
     public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+        for (int k = cards.size() - 1; k > 0; k--) {
+            int amount = k + 1;
+            int start = 0;
+            int rand = (int) (Math.random() * amount) + start;
+            Card temp = cards.get(k);
+            cards.set(k, cards.get(rand));
+            cards.set(rand, temp);
+        }
+        size = cards.size();
     }
 
     /**
@@ -85,32 +93,27 @@ public class Deck {
      */
     @Override
     public String toString() {
-        String rtn = "size = " + size + "\nUndealt cards: \n";
-
+        String a = "size = " + size + "\nUndealt cards: \n";
         for (int k = size - 1; k >= 0; k--) {
-            rtn = rtn + cards.get(k);
+            a = a + cards.get(k);
             if (k != 0) {
-                rtn = rtn + ", ";
+                a = a + ", ";
             }
             if ((size - k) % 2 == 0) {
-                // Insert carriage returns so entire deck is visible on console.
-                rtn = rtn + "\n";
+                a = a + "\n";
             }
         }
-
-        rtn = rtn + "\nDealt cards: \n";
+        a = a + "\nDealt cards: \n";
         for (int k = cards.size() - 1; k >= size; k--) {
-            rtn = rtn + cards.get(k);
+            a = a + cards.get(k);
             if (k != size) {
-                rtn = rtn + ", ";
+                a = a + ", ";
             }
             if ((k - cards.size()) % 2 == 0) {
-                // Insert carriage returns so entire deck is visible on console.
-                rtn = rtn + "\n";
+                a = a + "\n";
             }
         }
-
-        rtn = rtn + "\n";
-        return rtn;
+        a = a + "\n";
+        return a;
     }
 }
